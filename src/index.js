@@ -1,17 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+//forma nueva. el "createRoot" remplaza el "ReactDOM"
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App";
+//forma nueva. En lugar de usar el ReactDOM creamos una variable que se llama root y le  pasamos la etiqueta de donde cargamos la aplicacion
+const container = document.getElementById("root"); //Seleccionamos la etiqueta de donde vamos a cargar la raiz
+const root = createRoot(container); // RAiz de la aplicacion. CreateRoot para indicar que es la etiqueta donde se va cargar todo
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+root.render(<App/>) // Render del componente principal. Dentro de la etiqueta que actua como raiz de la aplicacion
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// Forma "vieja" de renderizar nuestra aplicacion
+//import ReactDOM from 'react-dom/client';
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//     <App />
+// );
